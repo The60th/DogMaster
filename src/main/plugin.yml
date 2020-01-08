@@ -1,0 +1,10 @@
+name: DogMaster
+version: 1.14.4-SNAPSHOT
+api-version: 1.13
+main: main.Main
+author: The60th
+depend:
+commands:
+   whistle:
+     description: Wistle main command
+     usage:
