@@ -26,23 +26,23 @@ public class Whistle {
         else if(mode == Mode.TOGGLE) newMode = Mode.COME;
         else if(mode == Mode.COME) newMode = Mode.SIT;
         else if(mode == Mode.UNKNOWN) newMode = Mode.SIT;
-        System.out.println("Newmode is: " + newMode.toString());
+       // System.out.println("Newmode is: " + newMode.toString());
         ItemMeta itemMeta = itemStack.getItemMeta();
         List<String> itemLore = itemMeta.getLore();
 
         String newLore = " t";
         for (String lore: itemLore) {
-            System.out.println("Lore line: " + lore);
+            //.println("Lore line: " + lore);
 
             if(lore.contains(WHISTLE_MODE)){
-                System.out.println("At lore line: ");
+              //  System.out.println("At lore line: ");
                 newLore = WHISTLE_MODE + newMode.toString();
 
 
 
             }
         }
-        System.out.println("Setting lore to: " + itemLore);
+        //System.out.println("Setting lore to: " + itemLore);
         itemLore.remove(itemLore.size()-1);
         itemLore.add(newLore);
 

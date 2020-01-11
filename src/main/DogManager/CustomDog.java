@@ -42,8 +42,8 @@ public class CustomDog  {
         DyeColor[] possibleValues = DyeColor.WHITE.getDeclaringClass().getEnumConstants();
         for (DyeColor color: possibleValues) {
             if(string.toLowerCase().contains(color.toString().toLowerCase())) {
-                System.out.println(string);
-                System.out.println(color.toString());
+                //System.out.println(string);
+                //System.out.println(color.toString());
                 return color;
             }
         }

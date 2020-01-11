@@ -38,7 +38,7 @@ public class Main extends JavaPlugin
         this.registerCommands();
         this.loadDogs();
         this.sqlConnect();
-        this.demoQuery();
+        //this.demoQuery();
     }
 
     public void onDisable() {
@@ -91,7 +91,7 @@ public class Main extends JavaPlugin
             final ResultSet resultSet = getStatement().executeQuery("select * from dogs;");
             while (resultSet.next()) {
                 final String owner = resultSet.getString("owner");
-                System.out.println(owner);
+              //  System.out.println(owner);
             }
         }
         catch (SQLException e) {

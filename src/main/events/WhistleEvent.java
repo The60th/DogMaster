@@ -27,7 +27,7 @@ public class WhistleEvent implements Listener {
     public void onRightInteract(PlayerInteractEvent event) {
         if(event.getHand().equals(EquipmentSlot.OFF_HAND)) return; //Return the right click event for the off hand trigger.
 
-        System.out.println("Right click call?");
+       // System.out.println("Right click call?");
         String message = ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD +  "Changing Whistle Mode to: " + ChatColor.GREEN + "" +ChatColor.ITALIC+ "";
 
         Action action = event.getAction();
@@ -58,7 +58,7 @@ public class WhistleEvent implements Listener {
                             case SIT:
 
                                 if(colorMode){
-                                    System.out.println("Color mode: target: " + targetColor);
+                                   // System.out.println("Color mode: target: " + targetColor);
                                     if(wolf.getCollarColor() == targetColor) wolf.setSitting(true);
                                 }
                                 else {
@@ -86,19 +86,19 @@ public class WhistleEvent implements Listener {
                                 if(colorMode){
                                     if(wolf.getCollarColor() == targetColor){
                                         if(wolf.isSitting()){
-                                            System.out.println("Wolf sitting.");
+                                           // System.out.println("Wolf sitting.");
                                             wolf.setSitting(false);
                                         }else{
-                                            System.out.println("Wolf not is sitting");
+                                           // System.out.println("Wolf not is sitting");
                                             wolf.setSitting(true);
                                         }
                                     }
                                 }else {
                                     if (wolf.isSitting()) {
-                                        System.out.println("Wolf sitting. noncolor");
+                                        //System.out.println("Wolf sitting. noncolor");
                                         wolf.setSitting(false);
                                     } else {
-                                         System.out.println("Wolf not is sitting noncolor");
+                                       //  System.out.println("Wolf not is sitting noncolor");
                                         wolf.setSitting(true);
                                     }
                                 }
@@ -151,7 +151,7 @@ public class WhistleEvent implements Listener {
         }*/
     }
     public DyeColor dyeInOffHand(Player player){
-        System.out.println(player.getInventory().getItemInOffHand().getType());
+       // System.out.println(player.getInventory().getItemInOffHand().getType());
         if(player.getInventory().getItemInOffHand().getType() != Material.AIR){
             Material mat = player.getInventory().getItemInOffHand().getType();
             switch (mat){
@@ -204,7 +204,7 @@ public class WhistleEvent implements Listener {
         new BukkitRunnable(){
             @Override
             public void run() {
-                System.out.println("Clearing taget.");
+                //System.out.println("Clearing taget.");
                 wolf.setTarget(null);
             }
         }.runTaskLaterAsynchronously(Main.getPlugin(),200);

@@ -30,7 +30,7 @@ public class dogSpawn implements CommandExecutor {
             switch (args[0].toLowerCase()){
                 case "spawn":
                     Location location = player.getLocation();
-                    System.out.println("test");
+                    //System.out.println("test");
                     DogManager.spawnDogs(player);
 
                     return true;

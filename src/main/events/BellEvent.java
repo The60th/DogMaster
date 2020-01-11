@@ -42,7 +42,7 @@ public class BellEvent implements Listener {
 
 
 
-            System.out.println("Bell clicked");
+           //System.out.println("Bell clicked");
             Location airLoc = new Location(loc.getWorld(),loc.getX(), loc.getY()+1.0,loc.getZ());
             Villager villager = (Villager) airLoc.getWorld().spawnEntity(airLoc, EntityType.VILLAGER);
             villager.setAI(false);
@@ -94,7 +94,7 @@ public class BellEvent implements Listener {
                         if(wolf.getCollarColor() == targetColor){
                             if(wolf.isSitting()) wolf.setSitting(false);
                             wolf.setTarget(villager);
-                            System.out.println("Setting target color.");
+                         //   System.out.println("Setting target color.");
                         }
                     }else {
                         if(wolf.isSitting())wolf.setSitting(false);
@@ -118,8 +118,8 @@ public class BellEvent implements Listener {
         DyeColor[] possibleValues = DyeColor.WHITE.getDeclaringClass().getEnumConstants();
         for (DyeColor color: possibleValues) {
             if(mat.toString().toLowerCase().contains(color.toString().toLowerCase())) {
-                System.out.println(mat.toString());
-                System.out.println(color.toString());
+                //System.out.println(mat.toString());
+                //System.out.println(color.toString());
                 return color;
             }
         }
