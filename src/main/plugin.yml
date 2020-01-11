@@ -8,3 +8,6 @@ commands:
    whistle:
      description: Wistle main command
      usage:
+   dog:
+     description: woof woof
+     usage:

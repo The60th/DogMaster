@@ -124,44 +124,6 @@ public class BellEvent implements Listener {
             }
         }
 
-
-        /*
-        switch (mat){
-            case WHITE_WOOL:
-                return DyeColor.WHITE;
-            case ORANGE_WOOL:
-                return DyeColor.ORANGE;
-            case MAGENTA_WOOL:
-                return DyeColor.MAGENTA;
-            case LIGHT_BLUE_WOOL:
-                return DyeColor.LIGHT_BLUE;
-            case YELLOW_WOOL:
-                return DyeColor.YELLOW;
-            case LIME_WOOL:
-                return DyeColor.LIME;
-            case PINK_WOOL:
-                return DyeColor.PINK;
-            case GRAY_WOOL:
-                return DyeColor.GRAY;
-            case LIGHT_GRAY_WOOL:
-                return DyeColor.LIGHT_GRAY;
-            case CYAN_WOOL:
-                return DyeColor.CYAN;
-            case PURPLE_WOOL:
-                return DyeColor.PURPLE;
-            case BLUE_WOOL:
-                return DyeColor.BLUE;
-            case BROWN_WOOL:
-                return DyeColor.BROWN;
-            case GREEN_WOOL:
-                return DyeColor.GREEN;
-            case RED_WOOL:
-                return DyeColor.RED;
-            case BLACK_WOOL:
-                return DyeColor.BLACK;
-            default:
-                    return null;
-        }*/
         return null;
     }
 }

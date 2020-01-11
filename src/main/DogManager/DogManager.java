@@ -90,6 +90,7 @@ public class DogManager {
             Main.DOG_MANAGER.getDogsFromDB(player);
         }
         for (CustomDog dog : Main.DOG_MANAGER.loadedDogs) {
+            System.out.println("Any dogs to spawn?");
             if (dog.getOwner() == player) {
                 System.out.println("Spawning dog.");
                 //Spawn this dog.
