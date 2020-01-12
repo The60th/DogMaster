@@ -1,5 +1,7 @@
 package main;
 
+import main.tests.events.DogSpawn;
+import main.tests.events.DogTame;
 import org.bukkit.plugin.java.*;
 import java.util.logging.*;
 import main.DogManager.*;
@@ -22,6 +24,7 @@ public class Main extends JavaPlugin
     private final String database = "dogmangager";
     private final String url = "jdbc:mysql://localhost:3306/dogmangager?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
     private static Statement statement;
+    private static Connection connection;
     boolean databaseConnected;
 
     public Main() {
@@ -59,6 +62,8 @@ public class Main extends JavaPlugin
         pm.registerEvents(new WhistleEvent(), this);
         pm.registerEvents(new hitEvent(), this);
         pm.registerEvents(new loginEvents(), this);
+        pm.registerEvents(new DogSpawn(), this);
+        pm.registerEvents(new DogTame(), this);
     }
 
     public static Plugin getPlugin() {
@@ -73,8 +78,8 @@ public class Main extends JavaPlugin
 
     public void sqlConnect() {
         try {
-            final Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/dogmangager?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "the60th", "DogManager123");
-            Main.statement = conn.createStatement();
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dogmangager?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC", "the60th", "DogManager123");
+            Main.statement = connection.createStatement();
             this.databaseConnected = true;
         }
         catch (SQLException e) {
@@ -102,4 +107,5 @@ public class Main extends JavaPlugin
     public static Statement getStatement() {
         return Main.statement;
     }
+    public static Connection getConnection(){return Main.connection;}
 }

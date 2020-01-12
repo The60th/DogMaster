@@ -197,8 +197,7 @@ public class WhistleEvent implements Listener {
     private void wolfFollow(Wolf wolf, Player player){
         wolf.setSitting(false);
 
-        wolf.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,10,2));
-        wolf.addPotionEffect(new PotionEffect(PotionEffectType.JUMP,10,4));
+        wolf.addPotionEffect(new PotionEffect(PotionEffectType.SPEED,15,3));
 
         wolf.setTarget(player);
         new BukkitRunnable(){

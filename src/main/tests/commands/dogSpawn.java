@@ -1,6 +1,7 @@
 package main.tests.commands;
 
 import main.DogManager.DogManager;
+import main.Main;
 import main.whistle.Whistle;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -31,7 +32,39 @@ public class dogSpawn implements CommandExecutor {
                 case "spawn":
                     Location location = player.getLocation();
                     //System.out.println("test");
-                    DogManager.spawnDogs(player);
+                    Main.DOG_MANAGER.spawnDogs(player);
+
+                    return true;
+                case "name":
+                    getTag(player,args[1]);
+                    return true;
+                case "names":
+                    String chads[] = {
+                            "Todd" ,
+                            "John" ,
+                            "Logan" ,
+                            "Jacob" ,
+                            "Luke" ,
+                            "Chase" ,
+                            "Dylan" ,
+                            "Chad" ,
+                            "Matt" ,
+                            "Caleb" ,
+                            "Travis" ,
+                            "Collin" ,
+                            "Brad" ,
+                            "Spencer" ,
+                            "Chris" ,
+                            "William" ,
+                            "Josh" ,
+                            "Nick" ,
+                            "Brandon" ,
+                            "Connor" ,
+                            "Tanner" ,
+                            "Ryan"};
+                    for(int i=0; i < chads.length; i++){
+                        getTag(player,chads[i]);
+                    }
 
                     return true;
                 default:
@@ -41,5 +74,13 @@ public class dogSpawn implements CommandExecutor {
         }
 
         return false;
+    }
+
+    public void getTag(Player player, String string){
+        ItemStack itemStack = new ItemStack(Material.NAME_TAG);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setDisplayName(string);
+        itemStack.setItemMeta(itemMeta);
+        player.getInventory().addItem(itemStack);
     }
 }

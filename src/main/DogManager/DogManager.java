@@ -8,6 +8,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Wolf;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -81,10 +82,10 @@ public class DogManager {
         }
     }
 
-    public static void despawnDogs(Player player) {
+    public  void despawnDogs(Player player) {
     }
 
-    public static void spawnDogs(Player player) {
+    public  void spawnDogs(Player player) {
         if (!Main.DOG_MANAGER.playerLoaded(player)) {
          //   System.out.println("Loading dogs.");
             Main.DOG_MANAGER.getDogsFromDB(player);
@@ -99,7 +100,56 @@ public class DogManager {
             }
         }
     }
+    /**
+     *insert into dogs values(
+     * 3,
+     * "353a6216-2437-4b36-93fd-ea31d59b7852",
+     * "test",
+     * 2,
+     * 2,
+     * "pink",
+     * "uuid");
+     */
+    public  void saveDog(Player player, Wolf wolf){
+        UUID playerUUID = player.getUniqueId();
+        UUID wolfUUID = UUID.randomUUID();
+        String name = "NewDog";
+        int attack = 2;
+        int health = 2;
+        String color = "Blue";
 
+        String query = " insert into dogs (owner, name, attack, health,color,uuid)"
+                + " values (?, ?, ?, ?, ?,?)";
+
+        // create the mysql insert preparedstatement
+        PreparedStatement preparedStmt = null;
+        try {
+            preparedStmt = Main.getConnection().prepareStatement(query);
+
+        //preparedStmt.setString (1, "NULL");
+        preparedStmt.setString (1, player.getUniqueId().toString());
+        preparedStmt.setString   (2, name);
+        preparedStmt.setInt(3, 2);
+        preparedStmt.setInt    (4, 2);
+        preparedStmt.setString(5,color);
+        preparedStmt.setString(6,wolfUUID.toString());
+
+        preparedStmt.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        /*
+        String query = "inset into dogs value(NULL," + "'" + playerUUID.toString() +
+                "','" + name + "'," + attack +","+health+",'" +
+                color +"','"+wolfUUID.toString() + "');";
+        try {
+            Main.getStatement().executeQuery(query);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }*/
+
+    }
     private boolean playerLoaded(Player player) {
         return this.loadedPlayers.contains(player);
     }
